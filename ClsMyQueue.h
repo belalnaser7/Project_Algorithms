@@ -10,7 +10,7 @@ protected:
 ClsDblLinkedList<T> _Mylist;
 public:
 void push(T value){
-    _Mylist.InsertAtBeginning(value);
+    _Mylist.InsertEnd(value);
 }
 void pop(){
     _Mylist.DeleteFrist();
