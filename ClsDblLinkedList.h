@@ -154,12 +154,10 @@ public:
    };
    int size()
    {
-
       return _size;
    }
    bool IsEmpty()
    {
-
       // return (_head==NULL);
       return _size == 0 ? true : false;
    }
