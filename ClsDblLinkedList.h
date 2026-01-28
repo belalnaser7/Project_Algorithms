@@ -197,6 +197,23 @@ public:
          return item->data;
       }
    }
+
+   void UpdateItem(int index,T value){
+        Node *item = GetNode(index);
+        if (item!=NULL){
+         item->data=value;
+        }
+   }
+   bool InsertAfter(int index,T value){
+       Node *find = GetNode(index);
+       if(find!=NULL){
+          InsertAfter(find,value);
+           _size++;
+          return true;
+       }
+      return false;
+      
+   }
    void Reverse()
    {
       Node *Current = _head;

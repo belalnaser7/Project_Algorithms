@@ -89,5 +89,11 @@ int main()
      cout << "the elements in linkedlist are :-\n";
     MyDblLinkedList.printList();
 
-cout << "the value of item 2 is "<<MyDblLinkedList.GetItem(8);
+cout << "the value of item 2 is "<<MyDblLinkedList.GetItem(2);
+
+MyDblLinkedList.UpdateItem(3,500);
+MyDblLinkedList.InsertAfter(5,800);
+
+cout << "the elements in linkedlist are :-\n";
+    MyDblLinkedList.printList();
 };
