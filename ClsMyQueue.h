@@ -9,6 +9,7 @@ class ClsMyQueue
 protected:
 ClsDblLinkedList<T> _Mylist;
 public:
+
 void push(T value){
     _Mylist.InsertEnd(value);
 }
@@ -28,7 +29,7 @@ T Front(){
     return _Mylist.GetItem(0);
 }
 T Back(){
-    return _Mylist.GetItem(size());
+    return _Mylist.GetItem(size()-1);
 }
 T GetItem(int index){
     return _Mylist.GetItem(index);
@@ -37,10 +38,10 @@ void Reverse(){
     _Mylist.Reverse();
 }
 void UpdateItem(int index,T value ){
-    _Mylist.UpdateItem(index,value)
+    _Mylist.UpdateItem(index,value);
 }
 void InsertAfter(int index,T value){
-    _Mylist.InsertAfter(index,value)
+    _Mylist.InsertAfter(index,value);
 }
 void InsertAtFornt(T value){
     _Mylist.InsertAtBeginning(value);
@@ -51,6 +52,4 @@ void InsertAtBack(T value){
 void clear(){
     _Mylist.Clear();
 }
-
-
 };

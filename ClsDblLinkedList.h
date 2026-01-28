@@ -6,7 +6,7 @@ class ClsDblLinkedList
 {
 
 protected:
-   int _size;
+   int _size=0;
 
 public:
    class Node
@@ -113,11 +113,12 @@ public:
                Current->Next->prev = Current->prev;
             }
             delete Current;
+             _size--;
          }
          Current = NextNode;
       }
 
-      _size--;
+     
    };
    void DeleteFrist()
    {
@@ -168,33 +169,30 @@ public:
          DeleteFrist();
       }
    }
-   Node *GetNode(int index)
-   {
-      if (_head == NULL || _size < index)
-         return NULL;
-      int counter = 0;
-      Node *Current = _head;
-      while (Current != NULL)
-      {
-         counter++;
-         if (counter == index)
+  Node* GetNode(int index)
+{
+    if (_head == NULL || index < 0 || index >= _size)
+        return NULL;
+
+    Node* Current = _head;
+    int counter = 0;
+    while (Current != NULL)
+    {
+        if (counter == index)
             return Current;
-         Current = Current->Next;
-      }
-      return NULL;
-   }
-   T GetItem(int index)
-   {
-      Node *item = GetNode(index);
-      if (item == NULL)
-      {
-         return T();
-      }
-      else
-      {
-         return item->data;
-      }
-   }
+        Current = Current->Next;
+        counter++;
+    }
+    return NULL;
+}
+
+T GetItem(int index)
+{
+    Node* item = GetNode(index);
+    if (item == NULL)
+        return T();   
+    return item->data;
+}
 
    void UpdateItem(int index,T value){
         Node *item = GetNode(index);
@@ -206,7 +204,6 @@ public:
        Node *find = GetNode(index);
        if(find!=NULL){
           InsertAfter(find,value);
-           _size++;
           return true;
        }
       return false;
